@@ -25,7 +25,7 @@ export function TerminalFooter() {
                         </a>
                         <span className="hidden md:inline text-zinc-800">|</span>
                         <div>
-                            Signed by <span className="text-zinc-400 font-bold inline-block animate-glitch hover:text-cyan-400 transition-colors cursor-default">MBK</span>
+                            Signed by <span className="text-zinc-400 font-bold inline-block animate-glitch hover:text-cyan-400 transition-colors cursor-default">BSS</span>
                         </div>
                     </div>
                 </div>

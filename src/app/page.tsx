@@ -123,11 +123,11 @@ function PhilosophySection({
                 <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                 <div className="w-3 h-3 rounded-full bg-green-500/50" />
               </div>
-              <span className="text-xs text-zinc-500 ml-2">{isGame ? "movement.cpp" : "fallback_strategy.ts"}</span>
+              <span className="text-xs text-zinc-500 ml-2">{isGame ? "movement.cpp" : "SystemCore.java"}</span>
             </div>
 
             {isGame ? (
-              <pre className="overflow-x-auto text-xs md:text-sm">
+              <pre className="overflow-x-auto text-xs md:text-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
                 <code>
                   <span className="text-purple-400">void</span> <span className="text-blue-400">UMovementComponent</span>::<span className="text-yellow-300">ExecuteVault</span>(<span className="text-purple-400">const</span> FVector& Target) {'{'}
                   <span className="text-zinc-500">// Deterministic execution based on Intent</span>
@@ -146,19 +146,21 @@ function PhilosophySection({
                 </code>
               </pre>
             ) : (
-              <pre className="overflow-x-auto text-xs md:text-sm">
+              <pre className="overflow-x-auto text-xs md:text-sm [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
                 <code>
-                  <span className="text-purple-400">async function</span> <span className="text-yellow-300">authorizeAccess</span>(user, resource) {'{'}
+                  <span className="text-purple-400">public class</span> <span className="text-blue-400">SystemCore</span> {'{'}
+                  <span className="text-purple-400">public boolean</span> <span className="text-yellow-300">authorizeAccess</span>(User user, Resource resource) {'{'}
                   <span className="text-purple-400">try</span> {'{'}
                   <span className="text-zinc-500">// Attempt cloud verification</span>
-                  <span className="text-purple-400">return await</span> <span className="text-blue-400">Cloud</span>.<span className="text-yellow-300">verify</span>(user.id);
-                  {'}'} <span className="text-purple-400">catch</span> (networkError) {'{'}
+                  <span className="text-purple-400">return</span> <span className="text-blue-400">Cloud</span>.<span className="text-yellow-300">verify</span>(user.getId());
+                  {'}'} <span className="text-purple-400">catch</span> (NetworkException e) {'{'}
 
                   <span className="text-zinc-500">// Fallback to Edge Verification (NFC)</span>
-                  <span className="text-pink-400">logger</span>.<span className="text-yellow-300">warn</span>(<span className="text-green-300">"Cloud unreachable. Engaging Local Protocol."</span>);
+                  <span className="text-blue-400">Logger</span>.<span className="text-yellow-300">warn</span>(<span className="text-green-300">"Cloud unreachable. Engaging Local Protocol."</span>);
 
-                  <span className="text-purple-400">const</span> localKey = <span className="text-blue-400">HardwareSecurity</span>.<span className="text-yellow-300">readSecureElement</span>();
-                  <span className="text-purple-400">return</span> <span className="text-blue-400">Cryptography</span>.<span className="text-yellow-300">validateSignature</span>(localKey, user.hash);
+                  <span className="text-blue-400">Key</span> localKey = <span className="text-blue-400">HardwareSecurity</span>.<span className="text-yellow-300">readSecureElement</span>();
+                  <span className="text-purple-400">return</span> <span className="text-blue-400">Cryptography</span>.<span className="text-yellow-300">validateSignature</span>(localKey, user.getHash());
+                  {'}'}
                   {'}'}
                   {'}'}
                 </code>
