@@ -45,7 +45,7 @@ export function SplitHero() {
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">Game Dev</h2>
                             <p className="text-primary font-mono text-sm tracking-wider uppercase mb-6">Lead: Atacan Gökçe</p>
                             <div className="inline-flex items-center gap-2 text-zinc-400 group-hover:text-white transition-colors">
-                                <span>Enter Studio</span>
+                                <span>Begin Playground</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </motion.div>
@@ -79,7 +79,7 @@ export function SplitHero() {
                             <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">Systems</h2>
                             <p className="text-secondary font-mono text-sm tracking-wider uppercase mb-6">Lead: Murat Bahadır Kayıhan</p>
                             <div className="inline-flex items-center gap-2 text-zinc-400 group-hover:text-white transition-colors">
-                                <span>Access Terminal</span>
+                                <span>The Desert of the Real</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </motion.div>

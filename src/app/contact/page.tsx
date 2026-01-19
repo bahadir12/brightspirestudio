@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail, Youtube, Instagram } from "lucide-react";
 
 export default function ContactPage() {
     return (
@@ -40,6 +40,24 @@ export default function ContactPage() {
                         </svg>
                         Join our Discord
                     </a>
+                    <div className="flex items-center justify-center gap-4 pt-4">
+                        <a
+                            href="https://www.youtube.com/@BrightspireStudio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-red-500 hover:bg-white/10 transition-all hover:scale-110"
+                        >
+                            <Youtube size={24} />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/brightspirestudio/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-pink-500 hover:bg-white/10 transition-all hover:scale-110"
+                        >
+                            <Instagram size={24} />
+                        </a>
+                    </div>
                     <p className="text-xs text-zinc-500 font-mono">Response time &lt; 24h</p>
                 </div>
             </motion.div>
