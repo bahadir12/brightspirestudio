@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --font-inter: 'Inter', sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #06b6d4;
+  --color-secondary: #7c3aed;
+
+  --font-sans: var(--font-inter);
+
+  --animate-blink: blink 1.3s infinite;
+
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes glitch {
+
+    0%,
+    100% {
+      transform: translate(0);
+      opacity: 1;
+    }
+
+    92% {
+      transform: translate(0);
+      opacity: 1;
+    }
+
+    93% {
+      transform: translate(-2px, 1px);
+      opacity: 0.8;
+    }
+
+    94% {
+      transform: translate(2px, -1px);
+      opacity: 1;
+    }
+
+    95% {
+      transform: translate(-1px, -1px);
+      opacity: 0.9;
+    }
+
+    96% {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Utilities */
+@layer utilities {
+  .animate-glitch {
+    animation: glitch 4s infinite;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .glow {
+    @apply absolute blur-[100px] opacity-20 pointer-events-none;
+    background: radial-gradient(circle, var(--color-primary), var(--color-secondary));
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply antialiased overflow-x-hidden min-h-screen;
 }
